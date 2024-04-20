@@ -28,24 +28,28 @@ BODY JSON
 }
 
 ## UPDATE
-PUT http://localhost:3000/users/1
+PUT http://localhost:3000/products/1
 BODY JSON
-{
-  "email": "pverly@redegazeta.com.br",
-  "password":"1234"
-}
+	{
+		"id": 1,
+		"name": "Product00s1",
+		"cost": 10,
+		"quantity": 1000,
+		"locationId": 1,
+		"familyId": 1
+	}
 HEADER Authorization: Bearer codigo
 
 ## PATCH
-PUT http://localhost:3000/users/1
+PUT http://localhost:3000/products/1
 BODY JSON
-{
-  "password":"12345678"
-}
+	{
+		"name": "Product00ss1"
+	}
 HEADER Authorization: Bearer codigo
 
 # DELETE
-DELETE http://localhost:3000/users/2
+DELETE http://localhost:3000/products/18
 HEADER Authorization: Bearer codigo
 
 # LOGIN - TOKEN JWT (SOMENTO MENTODO AUTOMATIZADO NPM RUN START-AUTH)
