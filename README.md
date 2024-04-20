@@ -1,43 +1,53 @@
-# JSONServer + JWT Auth
+# START SEM INTERACAO MANUAL
+"start": "json-server --watch ./barbearia-db.json",
+ 
 
-A Fake REST API using json-server with JWT authentication. You can find the [complete tutorial here](https://www.techiediaries.com/fake-api-jwt-json-server/)
+# START COM INTERACAO AUTOMATIZADA
+  "start-auth": "node server.js"
 
-## Install
+# METOD
 
-```bash
-$ npm install
-$ npm run api-auth
-```
+## SELECT
+GET http://localhost:3000/users
 
-## How to login?
 
-You can login by sending a POST request to
+## SELECT FILTER
+GET http://localhost:3000/users
 
-```
+## PAGINACAO
+GET http://localhost:3000/users?_page=1
+
+
+## CREATE USER
+POST http://localhost:3000/users
+BODY JSON
+{
+  "email": "pverly@redegazeta.com.br",
+  "password":"pverly"
+}
+
+## UPDATE
+PUT http://localhost:3000/users/1
+BODY JSON
+{
+  "email": "pverly@redegazeta.com.br",
+  "password":"1234"
+}
+
+## PATCH
+PUT http://localhost:3000/users/1
+BODY JSON
+{
+  "password":"12345678"
+}
+
+# DELETE
+DELETE http://localhost:3000/users/2
+
+# LOGIN - TOKEN JWT (SOMENTO MENTODO AUTOMATIZADO NPM RUN START-AUTH)
 POST http://localhost:3000/auth/login
-```
-with the following data 
-
-```
-{
-  "email": "nilson@email.com",
-  "password":"nilson"
-}
-```
-
-You should receive an access token with the following format 
-
-```
-{
-   "access_token": "<ACCESS_TOKEN>"
-}
-```
 
 
-You should send this authorization with any request to the protected endpoints
-
-```
-Authorization: Bearer <ACCESS_TOKEN>
-```
-
-
+@ref
+https://www.techiediaries.com/fake-api-jwt-json-server/
+https://www.youtube.com/watch?v=iNps8SBv-1A
